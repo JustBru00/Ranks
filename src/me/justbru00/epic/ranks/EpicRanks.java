@@ -4,8 +4,6 @@ import java.util.logging.Logger;
 
 import me.justbru00.epic.ranks.utils.GUIs;
 import me.justbru00.epic.ranks.utils.Listeners;
-import net.minecraft.server.v1_8_R2.GuiStatsComponent;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
