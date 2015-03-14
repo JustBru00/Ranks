@@ -1,0 +1,10 @@
+name: EpicRanks
+main: me.justbru00.epic.ranks.EpicRanks
+version: 1.0
+description: Shows ranks.
+author: JustBru00
+
+
+commands:
+ ranks:
+       description: Shows ranks.   
