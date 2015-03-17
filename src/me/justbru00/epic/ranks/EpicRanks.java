@@ -4,21 +4,24 @@ import java.util.logging.Logger;
 
 import me.justbru00.epic.ranks.utils.GUIs;
 import me.justbru00.epic.ranks.utils.Listeners;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class EpicRanks extends JavaPlugin {
 	Logger logger = Logger.getLogger("Minecraft");
+	ConsoleCommandSender clogger = this.getServer().getConsoleSender();
 	@Override
 	public boolean onCommand(CommandSender sender, Command command,
 			String commandLabel, String[] args) {
 		
 
-		if (commandLabel.equalsIgnoreCase("ranks")) {
+		if (commandLabel.equalsIgnoreCase("rankslist")) {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
 				if (args.length > 0) {
@@ -27,7 +30,7 @@ public class EpicRanks extends JavaPlugin {
                    guis.showRanks(player);
 				}
 			} else {
-				logger.warning("That command can't be used in CONSOLE.");
+				clogger.sendMessage(ChatColor.DARK_RED + "That command can't be used in CONSOLE.");
 			}
 		}
 
@@ -37,14 +40,15 @@ public class EpicRanks extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		PluginDescriptionFile pdfFile = this.getDescription();
-		this.logger.info(pdfFile.getName() + " Has Been Disabled.");
+		clogger.sendMessage(ChatColor.RED + pdfFile.getName() + " Has Been Disabled.");
 	}
 
 	@Override
 	public void onEnable() {
 		PluginDescriptionFile pdfFile = this.getDescription();
-		this.logger.info(pdfFile.getName() + " Version: "
-				+ pdfFile.getVersion() + " Has Been Enabled.");
+		clogger.sendMessage(ChatColor.AQUA + "======================================");
+		clogger.sendMessage(ChatColor.GREEN + pdfFile.getName() + " Version: " + pdfFile.getVersion() + " Has Been Enabled.");
+		clogger.sendMessage(ChatColor.AQUA + "======================================");
 		getServer().getPluginManager().registerEvents(new Listeners(), this);
 	}
 
