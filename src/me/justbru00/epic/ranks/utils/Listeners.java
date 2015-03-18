@@ -9,13 +9,13 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class Listeners implements Listener{
 	
-	GUIs guis = new GUIs();
+	
 	
 	@EventHandler
 	public void InventoryClick(InventoryClickEvent e) {
 		Player p = (Player) e.getWhoClicked();
 
-		if (e.getInventory().getTitle().contains(guis.getGUIName())) {
+		if (e.getInventory().getTitle().contains(GUIs.getGUIName())) {
 			e.setCancelled(true);
 
 			if (e.getCurrentItem() == null) {

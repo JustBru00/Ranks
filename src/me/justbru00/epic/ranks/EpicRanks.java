@@ -21,13 +21,13 @@ public class EpicRanks extends JavaPlugin {
 			String commandLabel, String[] args) {
 		
 
-		if (commandLabel.equalsIgnoreCase("rankslist")) {
+		if (commandLabel.equalsIgnoreCase("ranks")) {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
 				if (args.length > 0) {
 					player.sendMessage(ChatColor.GREEN + "Opening ranks GUI.");
-                   GUIs guis = new GUIs();
-                   guis.showRanks(player);
+                   
+                   GUIs.showRanks(player);
 				}
 			} else {
 				clogger.sendMessage(ChatColor.DARK_RED + "That command can't be used in CONSOLE.");

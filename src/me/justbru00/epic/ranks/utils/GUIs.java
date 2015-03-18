@@ -14,12 +14,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUIs {
 	
-	public String color(String uncolored) {		
+	public static String color(String uncolored) {		
 		String colored = ChatColor.translateAlternateColorCodes('&', uncolored);
 		return colored;
 	}
 	
-	private ItemStack createItem(String displayName, Material m, String lore) {
+	private static ItemStack createItem(String displayName, Material m, String lore) {
 		ItemStack is = new ItemStack(m);
 		ItemMeta im = is.getItemMeta();
 		im.setDisplayName(color(displayName));
@@ -29,9 +29,9 @@ public class GUIs {
 		is.setItemMeta(im);
 		return is;
 	}
-    private String ranksname = ChatColor.AQUA + "Ranks";
+    private static String ranksname = ChatColor.AQUA + "Ranks";
 	
-	public void showRanks(Player player) {
+	public static void showRanks(Player player) {
 		Inventory inv = Bukkit.createInventory(null, 54, ranksname);
 		inv.setItem(0, createItem("&6Rank &aA", Material.GRASS, "&6Cost: &b$10,000"));
 		inv.setItem(1, createItem("&6Rank &aB", Material.RED_SANDSTONE, "&6Cost: &b$20,000"));
@@ -48,7 +48,7 @@ public class GUIs {
 		player.openInventory(inv);
 	}
 	
-	public String getGUIName() {
+	public static String  getGUIName() {
 		return ranksname;
 	}
 }
